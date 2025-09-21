@@ -1,5 +1,19 @@
 onload = () =>{
     document.body.classList.remove("container");
+    
+    // Prevenir scroll en móvil
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    
+    // Prevenir zoom en móvil
+    document.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+    }, { passive: false });
+    
+    // Prevenir scroll con rueda del mouse
+    document.addEventListener('wheel', function(e) {
+        e.preventDefault();
+    }, { passive: false });
 };
 
 // Crear elemento de audio para el sonido de toque
@@ -47,7 +61,7 @@ document.addEventListener('touchstart', function(e) {
     const touch = e.touches[0];
     playTouchSound(); // Reproducir sonido
     createSunflower(touch.clientX, touch.clientY);
-});
+}, { passive: false });
 
 document.addEventListener('click', function(e) {
     playTouchSound(); // Reproducir sonido
@@ -57,4 +71,4 @@ document.addEventListener('click', function(e) {
 // Para dispositivos móviles, también escuchar touchend
 document.addEventListener('touchend', function(e) {
     e.preventDefault();
-});
+}, { passive: false });

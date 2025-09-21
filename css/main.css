@@ -6,6 +6,13 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+}
+
 :root {
   --dark-color: #000;
 }
@@ -15,9 +22,12 @@ body {
   align-items: flex-end;
   justify-content: center;
   min-height: 100vh;
+  height: 100vh;
   background-color: var(--dark-color);
   overflow: hidden;
   perspective: 1000px;
+  position: fixed;
+  width: 100%;
 }
 
 #lyrics {
@@ -36,10 +46,31 @@ body {
   /* Estilos específicos para dispositivos con un ancho máximo de 600px */
   #lyrics {
       font-size: 20px; /* Reduce el tamaño del texto para dispositivos más pequeños */
-      top: 30px;
+      top: 20px;
       letter-spacing: 3px;
+      padding: 0 10px;
+      text-align: center;
   }
-
+  
+  .titulo {
+    top: 80px !important;
+    font-size: 18px !important;
+    letter-spacing: 3px !important;
+    padding: 0 15px;
+    line-height: 1.4;
+  }
+  
+  body {
+    position: fixed !important;
+    overflow: hidden !important;
+    height: 100vh !important;
+    width: 100vw !important;
+  }
+  
+  html {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
 }
 .titulo {
   top: 150px;
