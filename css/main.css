@@ -25,7 +25,9 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
   position: absolute;
-  margin-bottom: 35%;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1;
   font-weight: bold;
   letter-spacing: 4px;
@@ -34,13 +36,15 @@ body {
   /* Estilos específicos para dispositivos con un ancho máximo de 600px */
   #lyrics {
       font-size: 20px; /* Reduce el tamaño del texto para dispositivos más pequeños */
-      margin-bottom: 600px;
+      top: 30px;
       letter-spacing: 3px;
   }
 
 }
 .titulo {
-  margin-bottom: 280px;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: "Arial Narrow", Arial, sans-serif;
   font-size: 24px;
   color: yellow;
@@ -1658,3 +1662,85 @@ h1 {
 }
 
 /* Agregar más estilos según sea necesario */
+
+/* Estilos para girasoles al tocar */
+.sunflower {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  z-index: 1000;
+  pointer-events: none;
+  animation: sunflowerAnimation 2s ease-out forwards;
+}
+
+.sunflower-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle, #8B4513, #654321);
+  border-radius: 50%;
+  z-index: 1002;
+}
+
+.sunflower-center::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  background: repeating-conic-gradient(from 0deg, #654321 0deg 30deg, #8B4513 30deg 60deg);
+  border-radius: 50%;
+}
+
+.sunflower-petal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 30px;
+  background: linear-gradient(to bottom, #FFD700, #FFA500);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform-origin: 50% 100%;
+  z-index: 1001;
+}
+
+.sunflower-petal:nth-child(1) { transform: translate(-50%, -100%) rotate(0deg); }
+.sunflower-petal:nth-child(2) { transform: translate(-50%, -100%) rotate(22.5deg); }
+.sunflower-petal:nth-child(3) { transform: translate(-50%, -100%) rotate(45deg); }
+.sunflower-petal:nth-child(4) { transform: translate(-50%, -100%) rotate(67.5deg); }
+.sunflower-petal:nth-child(5) { transform: translate(-50%, -100%) rotate(90deg); }
+.sunflower-petal:nth-child(6) { transform: translate(-50%, -100%) rotate(112.5deg); }
+.sunflower-petal:nth-child(7) { transform: translate(-50%, -100%) rotate(135deg); }
+.sunflower-petal:nth-child(8) { transform: translate(-50%, -100%) rotate(157.5deg); }
+.sunflower-petal:nth-child(9) { transform: translate(-50%, -100%) rotate(180deg); }
+.sunflower-petal:nth-child(10) { transform: translate(-50%, -100%) rotate(202.5deg); }
+.sunflower-petal:nth-child(11) { transform: translate(-50%, -100%) rotate(225deg); }
+.sunflower-petal:nth-child(12) { transform: translate(-50%, -100%) rotate(247.5deg); }
+.sunflower-petal:nth-child(13) { transform: translate(-50%, -100%) rotate(270deg); }
+.sunflower-petal:nth-child(14) { transform: translate(-50%, -100%) rotate(292.5deg); }
+.sunflower-petal:nth-child(15) { transform: translate(-50%, -100%) rotate(315deg); }
+.sunflower-petal:nth-child(16) { transform: translate(-50%, -100%) rotate(337.5deg); }
+
+@keyframes sunflowerAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8) rotate(540deg);
+  }
+}
